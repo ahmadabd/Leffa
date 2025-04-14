@@ -1,28 +1,16 @@
-# import numpy as np
-# from PIL import Image
-# from huggingface_hub import snapshot_download
-# from leffa.transform import LeffaTransform
-# from leffa.model import LeffaModel
-# from leffa.inference import LeffaInference
-# from leffa_utils.garment_agnostic_mask_predictor import AutoMasker
-# from leffa_utils.densepose_predictor import DensePosePredictor
-# from leffa_utils.utils import resize_and_center, list_dir, get_agnostic_mask_hd, get_agnostic_mask_dc, preprocess_garment_image
-# from preprocess.humanparsing.run_parsing import Parsing
-# from preprocess.openpose.run_openpose import OpenPose
-# import gradio as gr
-
 import numpy as np
 from PIL import Image
 from huggingface_hub import snapshot_download
 from leffa.transform import LeffaTransform
 from leffa.model import LeffaModel
 from leffa.inference import LeffaInference
-# from leffa_utils.garment_agnostic_mask_predictor import AutoMasker
+from leffa_utils.garment_agnostic_mask_predictor import AutoMasker
 from leffa_utils.densepose_predictor import DensePosePredictor
-# Removing preprocess_garment_image since it's not found in utils.
-from leffa_utils.utils import resize_and_center, list_dir, get_agnostic_mask_hd, get_agnostic_mask_dc
+from leffa_utils.utils import resize_and_center, list_dir, get_agnostic_mask_hd, get_agnostic_mask_dc, preprocess_garment_image
 from preprocess.humanparsing.run_parsing import Parsing
 from preprocess.openpose.run_openpose import OpenPose
+
+import gradio as gr
 
 # Download checkpoints
 print("Downloading checkpoints...")
@@ -252,7 +240,6 @@ class LeffaPredictor(object):
     #         seed,
     #     )
 
-leffa_predictor = LeffaPredictor()
 
 # The main execution block and Gradio UI can also be adapted to remove the pose transfer parts,
 # if only VITON-HD (virtual try-on) is required.
