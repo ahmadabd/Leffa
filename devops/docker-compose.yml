@@ -9,6 +9,7 @@ services:
     environment:
       - DEVICE=cuda
       - NVIDIA_VISIBLE_DEVICES=all
+      - LEFFA_API_KEY=${LEFFA_API_KEY}
     runtime: nvidia
     restart: always
     volumes:
