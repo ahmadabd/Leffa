@@ -11,7 +11,7 @@ services:
       - DEVICE=cuda
       - NVIDIA_VISIBLE_DEVICES=all
     runtime: nvidia
-    # restart: always
+    restart: always
     volumes:
       # Option A: bind‐mount a host folder:
       - ./models:/app/ckpts
