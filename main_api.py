@@ -122,9 +122,9 @@ async def predict_vt(
 
         # Convert the resulting NumPy images to base64 encoded strings so they can be returned in JSON.
         response = {
-            "vt_gen_image": np_to_base64(generated_image),
-            "vt_mask": np_to_base64(mask),
-            "vt_densepose": np_to_base64(densepose),
+            "generated_image": np_to_base64(generated_image),
+            "mask": np_to_base64(mask),
+            "densepose": np_to_base64(densepose),
         }
         return JSONResponse(content=response)
 
@@ -154,9 +154,9 @@ async def predict_pt(
             raise HTTPException(status_code=500, detail="Error during model inference: " + str(e))
 
         response = {
-            "pt_gen_image": np_to_base64(generated_image),
-            "pt_mask": np_to_base64(mask),
-            "pt_densepose": np_to_base64(densepose),
+            "generated_image": np_to_base64(generated_image),
+            "mask": np_to_base64(mask),
+            "densepose": np_to_base64(densepose),
         }
         return JSONResponse(content=response)
 
