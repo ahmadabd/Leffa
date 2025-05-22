@@ -10,10 +10,29 @@ from leffa_utils.utils import resize_and_center, list_dir, get_agnostic_mask_hd,
 from preprocess.humanparsing.run_parsing import Parsing
 from preprocess.openpose.run_openpose import OpenPose
 
+import os
+
 import gradio as gr
 
-# Download checkpoints
-snapshot_download(repo_id="franciszzj/Leffa", local_dir="./ckpts")
+# Check if models already exist before downloading
+def download_models_if_needed():
+    model_dir = "./ckpts"
+    
+    # Check if the directory exists and contains files
+    if os.path.exists(model_dir) and os.listdir(model_dir):
+        print(f"Models already exist in {model_dir}. Skipping download.")
+        return
+    
+    print(f"Models not found in {model_dir}. Downloading...")
+    # Create directory if it doesn't exist
+    os.makedirs(model_dir, exist_ok=True)
+    
+    # Download checkpoints
+    snapshot_download(repo_id="franciszzj/Leffa", local_dir=model_dir)
+    print("Model download completed.")
+
+# Download models only if needed
+download_models_if_needed()
 
 class LeffaPredictor(object):
     def __init__(self):
