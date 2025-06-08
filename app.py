@@ -62,12 +62,12 @@ class LeffaPredictor(object):
         )
         self.vt_inference_hd = LeffaInference(model=vt_model_hd)
 
-        vt_model_dc = LeffaModel(
-            pretrained_model_name_or_path="./ckpts/stable-diffusion-inpainting",
-            pretrained_model="./ckpts/virtual_tryon_dc.pth",
-            dtype="float16",
-        )
-        self.vt_inference_dc = LeffaInference(model=vt_model_dc)
+        # vt_model_dc = LeffaModel(
+        #     pretrained_model_name_or_path="./ckpts/stable-diffusion-inpainting",
+        #     pretrained_model="./ckpts/virtual_tryon_dc.pth",
+        #     dtype="float16",
+        # )
+        # self.vt_inference_dc = LeffaInference(model=vt_model_dc)
 
         pt_model = LeffaModel(
             pretrained_model_name_or_path="./ckpts/stable-diffusion-xl-1.0-inpainting-0.1",
