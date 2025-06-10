@@ -21,7 +21,10 @@ API_KEY = os.getenv("LEFFA_API_KEY", "123456")
 app = FastAPI(
     title="Leffa API", 
     description="Endpoints for the Tryon model", 
-    version="1.0"
+    version="1.0",
+    docs_url=False,
+    redoc_url=False,
+    openapi_url=False
 )
 
 # CORS Configuration - restrict to your services only
