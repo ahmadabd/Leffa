@@ -27,7 +27,7 @@ app = FastAPI(
     openapi_url=False
 )
 
-# CORS Configuration - restrict to your services only
+# CORS Configuration - restrict to your services only.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=os.getenv("ALLOWED_ORIGINS", "*").split(","),
