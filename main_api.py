@@ -22,9 +22,9 @@ app = FastAPI(
     title="Leffa API", 
     description="Endpoints for the Tryon model", 
     version="1.0",
-    docs_url=False,
-    redoc_url=False,
-    openapi_url=False
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None
 )
 
 # CORS Configuration - restrict to your services only
